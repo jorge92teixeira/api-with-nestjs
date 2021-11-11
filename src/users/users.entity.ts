@@ -1,5 +1,14 @@
 import { Exclude, Expose } from 'class-transformer';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import Post from 'src/posts/posts.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import Address from './address.entity';
 
 @Entity()
 class User {
@@ -15,6 +24,13 @@ class User {
   @Column()
   @Exclude()
   public password: string;
+
+  @OneToOne(() => Address, { eager: true, cascade: true })
+  @JoinColumn()
+  public address: Address;
+
+  @OneToMany(() => Post, (post: Post) => post.author)
+  public posts: Post[];
 }
 
 export default User;
