@@ -1,5 +1,5 @@
-import { Exclude, Expose } from 'class-transformer';
-import Post from 'src/posts/posts.entity';
+import { Exclude } from 'class-transformer';
+import Post from '../posts/posts.entity';
 import {
   Column,
   Entity,

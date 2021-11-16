@@ -1,5 +1,5 @@
-import Category from 'src/categories/category.entity';
-import User from 'src/users/users.entity';
+import Category from '../categories/category.entity';
+import User from '../users/users.entity';
 import {
   Column,
   Entity,
